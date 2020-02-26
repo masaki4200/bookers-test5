@@ -1,0 +1,63 @@
+
+
+<% @datas.each do |f| %>
+
+<% if @model == 'user' %>
+
+    <div class="col-xs-9">
+      <h2>Users search for '<%= @content %>'</h2>
+      <!--users一覧 -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td><%= attachment_image_tag(f, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %></td>
+            <td><%= f.name %></td>
+
+            <td><%= link_to "Show", f, class: "f_#{f.id}" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+ <% else %>
+
+
+    <div class="col-xs-9">
+      <h2>Books search for '<%= @content %>'</h2>
+      <!--books一覧 -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>title</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td><%= f.title %></td>
+            <td><%= f.body %></td>
+
+            <td><%= link_to "Book詳細", f, class: "f_#{f.id}" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+<% end %>
+
+<% end %>
